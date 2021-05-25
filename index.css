@@ -1,0 +1,8 @@
+body
+{
+	background:lightgreen;
+}
+
+#electricity , #flight, #shipping, #vehicle{
+	display:inline-block;
+	}
