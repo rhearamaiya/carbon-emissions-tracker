@@ -2,38 +2,75 @@
 	<head>
 		<title>API Calls</title>
 		<link rel="stylesheet" type="text/css" href="index.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
 	</head>
 
 	<body>
-		<header>
+		<!-- <header>
 			<h1>Carbon Interface API Calls</h1>
-		</header>
+		</header> -->
+		
+		<!-- <div class="bg-image"
+		style="
+			background-image: url('https://www.springfieldmontco.org/media/3487/106799331-1605781338424-gettyimages-125989189-25585940.jpeg');
+			height: 100vh;
+		"
+		> -->
+
+		<div class="p-5 text-center bg-light">
+			<h1 class="mb-3">Input Carbon Emission</h1>
+			<!-- <h4 class="mb-3">Subheading</h4> -->
+			<!-- <a class="btn btn-primary" href="" role="button">Call to action</a> -->
+		  </div>
+		
+			<select id="choose-type">
+				<option value="electricity">Electricity</option>
+				<option value="flight" selected="">Flight</option>
+				<option value="shipping">Shipping</option>
+				<option value="vehicle">Vehicle</option>
+			</select>
+			<input type="text" id="value" value="">
+
+			<button id="btn">Get Carbon Estimate</button>
+
+		</div>
+		
 		<main>
-			<button id="electricity" class="btn">Electricity</button>
-			
+
+			<!-- <button id="electricity" class="btn">Electricity</button> -->
+			<!-- <button id="electricity" type="button" class="btn btn-primary">Electricity</button> -->
+
 			<section id="electricity_estimate">
                 <!-- Electricity estimate goes here -->
             </section>
 
-			<button id="flight" class="btn">Flight</button>
+			<!-- <button id="flight" class="btn">Flight</button> -->
+			<!-- <button id="flight" type="button" class="btn btn-primary">Flight</button> -->
+
 			<section id="flight_estimate">
                 <!-- Flight estimate goes here -->
             </section>
 
-			<button id="shipping" class="btn">Shipping</button>
+			<!-- <button id="shipping" class="btn">Shipping</button> -->
+			<!-- <button id="shipping" type="button" class="btn btn-primary">Shipping</button> -->
+
 			<section id="shipping_estimate">
                 <!-- Shipping estimate goes here -->
             </section>
 
-			<button id="vehicle" class="btn">Vehicle</button>
+			<!-- <button id="vehicle" class="btn">Vehicle</button> -->
+			<!-- <button id="vehicle" type="button" class="btn btn-primary">Vehicle</button> -->
+
 			<section id="vehicle_estimate">
                 <!-- Vehicle estimate goes here -->
             </section>
-
+		
 		</main>
-
+		
 
 
 		<script type="text/javascript" src="scripts.js"></script>
+		
 	</body>
 </html>

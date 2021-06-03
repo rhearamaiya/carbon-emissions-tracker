@@ -1,17 +1,23 @@
+
 const baseURL = "https://www.carboninterface.com/api/v1"
 
 // FOR ELECTRICITY //
-
-//hard coded data/parameters
-const electricity_data = {
-        "type": "electricity",
-        "electricity_unit": "mwh",
-        "electricity_value": 42,
-        "country": "us",
-        "state": "fl"
+document.querySelector("#btn").onclick = value => {
+	console.log('why not here')
+	console.log(document.querySelector('#choose-type').value)
+	console.log(document.getElementById("value").value)
 }
 
-document.querySelector('#electricity').onclick = ev => {
+document.querySelector('#btn').onclick = ev => {
+	if(document.querySelector('#choose-type').value === "electricity"){
+		var val=document.getElementById("value").value
+		var electricity_data = {
+		"type": "electricity",
+		"electricity_unit": "mwh",
+		"electricity_value": val,
+		"country": "us",
+		"state": "fl"
+	}
 	fetch(`https://www.carboninterface.com/api/v1/estimates`,{
         method: 'POST',
         headers: {
@@ -23,23 +29,26 @@ document.querySelector('#electricity').onclick = ev => {
 		.then(response => response.json())
 		.then(result => {
 			//console.log('data:', result.data.attributes.carbon_g);
-			document.querySelector('#electricity_estimate').innerHTML = `Carbon released from 42 megawatt hours of electricity in Florida: ${result.data.attributes.carbon_g} grams`
+			console.log("result:", electricity_data)
+			console.log(typeof val)
+			document.querySelector('#electricity_estimate').innerHTML = `Carbon released from ${val} megawatt hours of electricity in Florida: ${result.data.attributes.carbon_g} grams`
 			
 		});
+	}
 };
 
 // FOR FLIGHT //
 
+document.querySelector('#btn').onclick = ev => {
+var val=document.getElementById("value").value
 const flight_data = {
 	"type": "flight",
-	"passengers": 2,
+	"passengers": val,
 	"legs": [
-	  {"departure_airport": "sfo", "destination_airport": "yyz"},
-	  {"departure_airport": "yyz", "destination_airport": "sfo"}
+		{"departure_airport": "sfo", "destination_airport": "yyz"},
+		{"departure_airport": "yyz", "destination_airport": "sfo"}
 	]
 }
-
-document.querySelector('#flight').onclick = ev => {
 fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	method: 'POST',
 	headers: {
@@ -51,23 +60,24 @@ fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	.then(response => response.json())
 	.then(result => {
 		//console.log('data:', result.data.attributes.carbon_g);
-		document.querySelector('#flight_estimate').innerHTML = `Carbon released from round-trip, 2-passenger flight San Francisco International Airport
+		document.querySelector('#flight_estimate').innerHTML = `Carbon released from round-trip, ${val}-passenger flight San Francisco International Airport
 		to Toronto Pearson International Airport: ${result.data.attributes.carbon_g} grams`
 	});
 };
 
 // FOR SHIPPING //
 
+document.querySelector('#btn').onclick = ev => {
+var val=document.getElementById("value").value
+
 const shipping_data = {
 	"type": "shipping",
-	"weight_value": 200,
+	"weight_value": val,
 	"weight_unit": "g",
 	"distance_value": 2000,
 	"distance_unit": "km",
 	"transport_method": "truck"
 }
-
-document.querySelector('#shipping').onclick = ev => {
 fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	method: 'POST',
 	headers: {
@@ -79,20 +89,20 @@ fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	.then(response => response.json())
 	.then(result => {
 		//console.log('data:', result.data.attributes.carbon_g);
-		document.querySelector('#shipping_estimate').innerHTML = `Carbon released from 200g shipment for 2000km by truck: ${result.data.attributes.carbon_g} grams`
+		document.querySelector('#shipping_estimate').innerHTML = `Carbon released from ${val}g shipment for 2000km by truck: ${result.data.attributes.carbon_g} grams`
 	});
 };
 
 // FOR VEHICLE //
 
+document.querySelector('#btn').onclick = ev => {
+var val=document.getElementById("value").value
 const vehicle_data = {
-	"type": "vehicle",
-	"distance_unit": "mi",
-	"distance_value": 100,
-	"vehicle_model_id": "7268a9b7-17e8-4c8d-acca-57059252afe9"
+"type": "vehicle",
+"distance_unit": "mi",
+"distance_value": val,
+"vehicle_model_id": "7268a9b7-17e8-4c8d-acca-57059252afe9"
 }
-
-document.querySelector('#vehicle').onclick = ev => {
 fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	method: 'POST',
 	headers: {
@@ -105,6 +115,6 @@ fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	.then(result => {
 		//console.log('data:', result.data.attributes.carbon_g);
 		//type of car is in response too
-		document.querySelector('#vehicle_estimate').innerHTML = `Carbon released from 100mi by 1993 Toyota Corolla: ${result.data.attributes.carbon_g} grams`
+		document.querySelector('#vehicle_estimate').innerHTML = `Carbon released from ${val}mi by 1993 Toyota Corolla: ${result.data.attributes.carbon_g} grams`
 	});
 };

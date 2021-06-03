@@ -6,3 +6,19 @@ body
 #electricity , #flight, #shipping, #vehicle{
 	display:inline-block;
 	}
+
+/* .bg-image
+{
+	opacity: .5;
+
+} */
+
+.mb-3
+{
+	background-color: olive;
+	color: white;    
+}
+
+select {
+	width: 100px;
+  }
