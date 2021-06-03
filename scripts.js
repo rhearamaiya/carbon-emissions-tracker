@@ -1,6 +1,33 @@
 
 const baseURL = "https://www.carboninterface.com/api/v1"
 
+const clear = `
+<section id="electricity_estimate">
+<!-- Electricity estimate goes here -->
+</section>
+
+<!-- <button id="flight" class="btn">Flight</button> -->
+<!-- <button id="flight" type="button" class="btn btn-primary">Flight</button> -->
+
+<section id="flight_estimate">
+<!-- Flight estimate goes here -->
+</section>
+
+<!-- <button id="shipping" class="btn">Shipping</button> -->
+<!-- <button id="shipping" type="button" class="btn btn-primary">Shipping</button> -->
+
+<section id="shipping_estimate">
+<!-- Shipping estimate goes here -->
+</section>
+
+<!-- <button id="vehicle" class="btn">Vehicle</button> -->
+<!-- <button id="vehicle" type="button" class="btn btn-primary">Vehicle</button> -->
+
+<section id="vehicle_estimate">
+<!-- Vehicle estimate goes here -->
+</section>
+`
+
 // FOR ELECTRICITY //
 document.querySelector("#btn").onclick = value => {
 	console.log('why not here')
@@ -31,15 +58,17 @@ document.querySelector('#btn').onclick = ev => {
 			//console.log('data:', result.data.attributes.carbon_g);
 			console.log("result:", electricity_data)
 			console.log(typeof val)
+			document.querySelector('#all_results').innerHTML=clear
 			document.querySelector('#electricity_estimate').innerHTML = `Carbon released from ${val} megawatt hours of electricity in Florida: ${result.data.attributes.carbon_g} grams`
 			
 		});
 	}
-};
+
 
 // FOR FLIGHT //
 
-document.querySelector('#btn').onclick = ev => {
+if(document.querySelector('#choose-type').value === "flight")
+{
 var val=document.getElementById("value").value
 const flight_data = {
 	"type": "flight",
@@ -60,14 +89,16 @@ fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	.then(response => response.json())
 	.then(result => {
 		//console.log('data:', result.data.attributes.carbon_g);
+		document.querySelector('#all_results').innerHTML=clear
 		document.querySelector('#flight_estimate').innerHTML = `Carbon released from round-trip, ${val}-passenger flight San Francisco International Airport
 		to Toronto Pearson International Airport: ${result.data.attributes.carbon_g} grams`
 	});
-};
+}
 
 // FOR SHIPPING //
 
-document.querySelector('#btn').onclick = ev => {
+if(document.querySelector('#choose-type').value === "shipping")
+{
 var val=document.getElementById("value").value
 
 const shipping_data = {
@@ -89,13 +120,15 @@ fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	.then(response => response.json())
 	.then(result => {
 		//console.log('data:', result.data.attributes.carbon_g);
+		document.querySelector('#all_results').innerHTML=clear
 		document.querySelector('#shipping_estimate').innerHTML = `Carbon released from ${val}g shipment for 2000km by truck: ${result.data.attributes.carbon_g} grams`
 	});
-};
+}
 
 // FOR VEHICLE //
 
-document.querySelector('#btn').onclick = ev => {
+if(document.querySelector('#choose-type').value === "vehicle")
+{
 var val=document.getElementById("value").value
 const vehicle_data = {
 "type": "vehicle",
@@ -115,6 +148,8 @@ fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	.then(result => {
 		//console.log('data:', result.data.attributes.carbon_g);
 		//type of car is in response too
+		document.querySelector('#all_results').innerHTML=clear
 		document.querySelector('#vehicle_estimate').innerHTML = `Carbon released from ${val}mi by 1993 Toyota Corolla: ${result.data.attributes.carbon_g} grams`
 	});
+}
 };
