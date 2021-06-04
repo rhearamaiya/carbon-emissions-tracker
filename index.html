@@ -23,17 +23,27 @@
 			<!-- <h4 class="mb-3">Subheading</h4> -->
 			<!-- <a class="btn btn-primary" href="" role="button">Call to action</a> -->
 		  </div>
-		
+		  <section id="form">
+
+			<div>
 			<select id="choose-type">
+				<option value="choose" selected="">Choose Emission Type</option>
+
 				<option value="electricity">Electricity</option>
-				<option value="flight" selected="">Flight</option>
+				<option value="flight">Flight</option>
 				<option value="shipping">Shipping</option>
 				<option value="vehicle">Vehicle</option>
 			</select>
-			<input type="text" id="value" value="">
-
+			</div>
+			
+			<div>
+			<input type="text" id="value" value="" placeholder="Enter value">
+			</div>
+			
+			<div>
 			<button id="btn">Get Carbon Estimate</button>
-
+			</div>
+		</section>
 		</div>
 		
 		<main>

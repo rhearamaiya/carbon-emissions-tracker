@@ -1,7 +1,8 @@
 body
 {
 	/* background:lightgreen; */
-	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/154d98d5-957e-4d10-9173-7341c19ada6f/d8wecxf-cf0a3351-1c69-49eb-99d2-4a8425809e37.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE1NGQ5OGQ1LTk1N2UtNGQxMC05MTczLTczNDFjMTlhZGE2ZlwvZDh3ZWN4Zi1jZjBhMzM1MS0xYzY5LTQ5ZWItOTlkMi00YTg0MjU4MDllMzcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.-hNDXKlK4tg50n9dNpmyTYcguEb9xn8HsDQewnNEByw");
+	/* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/154d98d5-957e-4d10-9173-7341c19ada6f/d8wecxf-cf0a3351-1c69-49eb-99d2-4a8425809e37.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE1NGQ5OGQ1LTk1N2UtNGQxMC05MTczLTczNDFjMTlhZGE2ZlwvZDh3ZWN4Zi1jZjBhMzM1MS0xYzY5LTQ5ZWItOTlkMi00YTg0MjU4MDllMzcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.-hNDXKlK4tg50n9dNpmyTYcguEb9xn8HsDQewnNEByw"); */
+	background-image: url("https://www.crushpixel.com/big-static15/preview4/rows-trees-forest-planted-man-2027978.jpg")
 }
 
 /* .bg-image
@@ -12,21 +13,40 @@ body
 
 .mb-3
 {
-	background-color: #008400;
+	background-color: #8BC827;
 	color: white;   
 	font-size: 75px; 
 }
 
-#select {
+#form {
+	/* text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+	margin: 4px 2px;
+	cursor: pointer;
+	vertical-align: middle; 
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  
-  
-	width: 100px;
+
+	width: 100px;  */
+
+	margin: auto;
+	width: 50%;
+
+
   }
 
 #all_results {
 	color:white;
 	background: black;
+}
+
+#form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 }
