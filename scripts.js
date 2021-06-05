@@ -29,14 +29,33 @@ const clear = `
 `
 
 // FOR ELECTRICITY //
-document.querySelector("#btn").onclick = value => {
-	console.log('why not here')
-	console.log(document.querySelector('#choose-type').value)
-	console.log(document.getElementById("value").value)
-}
+// document.querySelector("#btn").onclick = value => {
+// 	console.log('why not here')
+// 	console.log(document.querySelector('#choose-type').value)
+// 	console.log(document.getElementById("value").value)
+// }
+
+const selectType = document.getElementById('choose-type');
+
+selectType.addEventListener('change', (event) => {
+	// const result = document.querySelector('.result');
+	// result.textContent = `You like ${event.target.value}`;
+	var emissionType = event.target.value
+	console.log(emissionType)
 
 document.querySelector('#btn').onclick = ev => {
 	if(document.querySelector('#choose-type').value === "electricity"){
+
+
+		document.querySelector('#values').innerHTML = 
+		`
+		<input type="text" id="value" value="" placeholder="Enter electricity value (megawatt hours)">
+		<br>
+		<input type="text" id="state" value="" placeholder="Enter state">
+
+		`
+
+
 		var val=document.getElementById("value").value
 		var electricity_data = {
 		"type": "electricity",
@@ -153,3 +172,5 @@ fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 	});
 }
 };
+
+});
