@@ -90,8 +90,9 @@ selectType.addEventListener('change', (event) => {
 		`
 		<input type="text" id="passenger_no" value="" placeholder="Enter # passengers">
 		<br>
-		<br>
+		
 		<input type="text" id="departure_airport" value="sfo" placeholder="Enter departure airport">
+		<br>
 		<input type="text" id="destination_airport" value="yyz" placeholder="Enter destination airport">
 		`
 		document.querySelector('#btn').onclick = ev => {
@@ -122,6 +123,48 @@ selectType.addEventListener('change', (event) => {
 				to Toronto Pearson International Airport: ${result.data.attributes.carbon_g} grams`
 			});
 		}}
+
+		if(emissionType==="shipping"){
+			document.querySelector('#values').innerHTML = 
+			`
+			<input type="text" id="distance_value" value="" placeholder="Enter distance (in km)">
+			<br>
+			
+			<input type="text" id="weight_value" value="" placeholder="Enter weight (in g)">
+			<br>
+			`
+			document.querySelector('#btn').onclick = ev => {
+
+				var distance_value=document.getElementById("distance_value").value;
+				var weight_value=document.getElementById("weight_value").value;
+	
+
+				const shipping_data = {
+					"type": "shipping",
+					"weight_value": weight_value,
+					"weight_unit": "g",
+					"distance_value": distance_value,
+					"distance_unit": "km",
+					"transport_method": "truck"
+				}
+				fetch(`https://www.carboninterface.com/api/v1/estimates`,{
+					method: 'POST',
+					headers: {
+						'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(shipping_data)
+				})
+					.then(response => response.json())
+					.then(result => {
+						//console.log('data:', result.data.attributes.carbon_g);
+						console.log(result)
+						document.querySelector('#all_results').innerHTML=clear
+						document.querySelector('#shipping_estimate').innerHTML = `Carbon released from ${weight_value}g shipment for ${distance_value}km by truck: ${result.data.attributes.carbon_g} grams`
+					});
+				}
+				
+		}
 	
 	});
 
