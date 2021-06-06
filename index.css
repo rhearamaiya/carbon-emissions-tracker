@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
+/* https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap */
 /* body
 {
 	background:lightgreen;
@@ -18,32 +18,13 @@ body{
 		   /* bottom, image */
 		   url(https://i.pinimg.com/originals/2c/f0/cc/2cf0cce180d665e275d8fe5b05e61dd9.jpg);
 	   }
-   
-  
-
-/* .bg-image
-{
-	opacity: .5;
-
-} */
-
-/* @font-face {
-	font-family: "myFont";
-	src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-} */
 
 .mb-3
 {
-	/* background-color: #8BC827; */
 	color: white;   
 	font-size: 75px; 
 	font-family: 'Roboto', sans-serif;
 }
-
-/* #form {
-	margin: auto;
-	width: 50%;
-  } */
 
 #all_results {
 	color:white;
@@ -51,6 +32,8 @@ body{
 }
 
 #form {
+	margin: auto;
+	width: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

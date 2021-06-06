@@ -125,9 +125,6 @@ selectType.addEventListener('change', (event) => {
 		})
 			.then(response => response.json())
 			.then(result => {
-				//console.log('data:', result.data.attributes.carbon_g);
-				// console.log("result:", electricity_data)
-				// console.log(typeof val)
 				document.querySelector('#all_results').innerHTML=clear
 				document.querySelector('#electricity_estimate').innerHTML = `Carbon released from ${val} megawatt hours of electricity in ${document.getElementById("state").value}: ${result.data.attributes.carbon_g} grams`
 			
@@ -168,7 +165,6 @@ selectType.addEventListener('change', (event) => {
 		})
 			.then(response => response.json())
 			.then(result => {
-				//console.log('data:', result.data.attributes.carbon_g);
 				console.log('getting here?')
 				document.querySelector('#all_results').innerHTML=clear
 				document.querySelector('#flight_estimate').innerHTML = `Carbon released from round-trip, ${passenger_no}-passenger flight San Francisco International Airport
@@ -209,7 +205,6 @@ selectType.addEventListener('change', (event) => {
 				})
 					.then(response => response.json())
 					.then(result => {
-						//console.log('data:', result.data.attributes.carbon_g);
 						console.log(result)
 						document.querySelector('#all_results').innerHTML=clear
 						document.querySelector('#shipping_estimate').innerHTML = `Carbon released from ${weight_value}g shipment for ${distance_value}km by truck: ${result.data.attributes.carbon_g} grams`
