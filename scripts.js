@@ -45,6 +45,7 @@ selectType.addEventListener('change', (event) => {
 
 		document.querySelector('#values').innerHTML = 
 		`
+		<br>
 		<input type="text" id="value" value="" placeholder="Enter megawatt hours">
 		<br>
 		<select id = "state">
@@ -101,7 +102,7 @@ selectType.addEventListener('change', (event) => {
 	<option value="WY">Wyoming</option>
 </select>				
 		`
-
+		document.querySelector("#values").style.textAlign = "center";
 		document.querySelector('#btn').onclick = ev => {
 
 			var val=document.getElementById("value").value;
@@ -137,6 +138,7 @@ selectType.addEventListener('change', (event) => {
 
 		document.querySelector('#values').innerHTML = 
 		`
+		<br>
 		<input type="text" id="passenger_no" value="" placeholder="Enter # passengers">
 		<br>
 		
@@ -175,12 +177,19 @@ selectType.addEventListener('change', (event) => {
 		if(emissionType==="shipping"){
 			document.querySelector('#values').innerHTML = 
 			`
+			<br>
+			
 			<input type="text" id="distance_value" value="" placeholder="Enter distance (in km)">
 			<br>
 			
 			<input type="text" id="weight_value" value="" placeholder="Enter weight (in g)">
 			<br>
+			
 			`
+			document.querySelector("#values").style.textAlign = "center";
+
+			document.querySelector('#values').style.display="block"
+
 			document.querySelector('#btn').onclick = ev => {
 
 				var distance_value=document.getElementById("distance_value").value;
@@ -216,8 +225,10 @@ selectType.addEventListener('change', (event) => {
 		if(emissionType==="vehicle"){
 			document.querySelector('#values').innerHTML = 
 			`
+			<br>
 			<input type="text" id="distance_value" value="" placeholder="Enter mileage">
 			`
+			document.querySelector("#values").style.textAlign = "center";
 			document.querySelector('#btn').onclick = ev => {
 
 				var distance_value=document.getElementById("distance_value").value;

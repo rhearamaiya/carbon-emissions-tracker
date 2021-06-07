@@ -30,12 +30,35 @@ body{
 	color:white;
 	background: black;
 }
-
+/* 
 #form {
 	margin: auto;
 	width: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+} */
 
+#choose-type {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#values{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* .valss{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+} */
+
+#btn{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
