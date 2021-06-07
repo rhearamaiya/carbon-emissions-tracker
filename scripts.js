@@ -1,5 +1,9 @@
 
+// GLOBAL VARIABLES:
 const baseURL = "https://www.carboninterface.com/api/v1"
+
+var MAKE_ID
+var MODEL_ID
 
 const clear = `
 <section id="electricity_estimate">
@@ -235,17 +239,63 @@ selectType.addEventListener('change', (event) => {
 			`
 			<br>
 			<input type="text" id="distance_value" value="" placeholder="Enter mileage">
+			<br>
+			<br>
+			<input type="text" id="vehicle_make" value="" placeholder="Enter vehicle make">
+			<br>
+			<input type="text" id="vehicle_model" value="" placeholder="Enter vehicle model">
+
 			`
 			document.querySelector("#values").style.textAlign = "center";
 			document.querySelector('#btn').onclick = ev => {
 
 				var distance_value=document.getElementById("distance_value").value;
+				var vehicle_make = document.getElementById("vehicle_make").value;
+				var vehicle_model = document.getElementById("vehicle_model").value;
+
+				fetch(`https://www.carboninterface.com/api/v1/vehicle_makes`,{
+					method: 'GET',
+					headers: {
+						'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+						'Content-Type': 'application/json'
+					}
+
+				})
+					.then(response => response.json())
+					.then(result => {
+						obj = result.find(res => res.data.attributes.name === vehicle_make)
+						// console.log(obj.data.id)
+						// return MAKE_ID = obj.data.id
+						return obj.data.id
+						// console.log(MAKE_ID)
+					})
+					.then(result => {
+						// console.log('MAKE ID:', MAKE_ID)
+						MAKE_ID = result
+						console.log('MAKE_ID:', MAKE_ID)
+					
+
+				fetch(`https://www.carboninterface.com/api/v1/vehicle_makes/${MAKE_ID}/vehicle_models`,{
+					method: 'GET',
+						headers: {
+							'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+							'Content-Type': 'application/json'
+						}
+				})
+					.then(response => response.json())
+					.then(result => {
+						obj = result.find(res => res.data.attributes.name === vehicle_model)
+
+						MODEL_ID = obj.data.id
+						
+						// console.log('MODEL ID: ', MODEL_ID)
+					
 
 				const vehicle_data = {
 					"type": "vehicle",
 					"distance_unit": "mi",
 					"distance_value": distance_value,
-					"vehicle_model_id": "7268a9b7-17e8-4c8d-acca-57059252afe9"
+					"vehicle_model_id": MODEL_ID
 					}
 					fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 						method: 'POST',
@@ -260,11 +310,12 @@ selectType.addEventListener('change', (event) => {
 							//console.log('data:', result.data.attributes.carbon_g);
 							//type of car is in response too
 							document.querySelector('#all_results').innerHTML=clear
-							document.querySelector('#vehicle_estimate').innerHTML = `Carbon released from ${distance_value}mi by 1993 Toyota Corolla: ${result.data.attributes.carbon_g} grams`
+							document.querySelector('#vehicle_estimate').innerHTML = `Carbon released from ${distance_value} miles by ${vehicle_make} ${vehicle_model}: ${result.data.attributes.carbon_g} grams`
 							document.querySelector("#vehicle_estimate").style.textAlign = "center";
 
 						});
-
+					})
+				})
 					}
 				}
 });
