@@ -128,7 +128,8 @@ selectType.addEventListener('change', (event) => {
 			.then(result => {
 				document.querySelector('#all_results').innerHTML=clear
 				document.querySelector('#electricity_estimate').innerHTML = `Carbon released from ${val} megawatt hours of electricity in ${document.getElementById("state").value}: ${result.data.attributes.carbon_g} grams`
-			
+				
+				document.querySelector("#electricity_estimate").style.textAlign = "center";
 				})
 
 		}}
@@ -141,11 +142,13 @@ selectType.addEventListener('change', (event) => {
 		<br>
 		<input type="text" id="passenger_no" value="" placeholder="Enter # passengers">
 		<br>
-		
-		<input type="text" id="departure_airport" value="sfo" placeholder="Enter departure airport">
 		<br>
-		<input type="text" id="destination_airport" value="yyz" placeholder="Enter destination airport">
+		
+		<input type="text" id="departure_airport" value="" placeholder="Enter departure airport">
+		<br>
+		<input type="text" id="destination_airport" value="" placeholder="Enter destination airport">
 		`
+		document.querySelector("#values").style.textAlign = "center";
 		document.querySelector('#btn').onclick = ev => {
 
 		var passenger_no=document.getElementById("passenger_no").value
@@ -171,6 +174,9 @@ selectType.addEventListener('change', (event) => {
 				document.querySelector('#all_results').innerHTML=clear
 				document.querySelector('#flight_estimate').innerHTML = `Carbon released from round-trip, ${passenger_no}-passenger flight San Francisco International Airport
 				to Toronto Pearson International Airport: ${result.data.attributes.carbon_g} grams`
+				document.querySelector("#flight_estimate").style.textAlign = "center";
+				// document.querySelector('#all_results').innerHTML
+			
 			});
 		}}
 
@@ -217,6 +223,8 @@ selectType.addEventListener('change', (event) => {
 						console.log(result)
 						document.querySelector('#all_results').innerHTML=clear
 						document.querySelector('#shipping_estimate').innerHTML = `Carbon released from ${weight_value}g shipment for ${distance_value}km by truck: ${result.data.attributes.carbon_g} grams`
+						document.querySelector("#shipping_estimate").style.textAlign = "center";
+
 					});
 				}
 				
@@ -253,6 +261,8 @@ selectType.addEventListener('change', (event) => {
 							//type of car is in response too
 							document.querySelector('#all_results').innerHTML=clear
 							document.querySelector('#vehicle_estimate').innerHTML = `Carbon released from ${distance_value}mi by 1993 Toyota Corolla: ${result.data.attributes.carbon_g} grams`
+							document.querySelector("#vehicle_estimate").style.textAlign = "center";
+
 						});
 
 					}

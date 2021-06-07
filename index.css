@@ -28,7 +28,11 @@ body{
 
 #all_results {
 	color:white;
-	background: black;
+	font-size: 25px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+
+	/* background: black; */
 }
 /* 
 #form {
@@ -61,4 +65,8 @@ body{
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	background-color: #5AAE54;
+	color:white;
+	border-radius: 4px;
+
 }
