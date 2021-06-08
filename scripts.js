@@ -265,7 +265,7 @@ selectType.addEventListener('change', (event) => {
 			document.querySelector('#values').innerHTML = 
 			`
 			<br>
-			<input type="text" id="distance_value" value="" placeholder="Enter mileage">
+			<input type="text" id="distance_value" value="" placeholder="Enter miles travelled">
 			<br>
 			<br>
 			<input type="text" id="vehicle_make" value="" placeholder="Enter vehicle make">

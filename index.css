@@ -94,8 +94,9 @@ a:link, a:visited, a:hover, a:active { color: white }
 .navbar {
 	/* background-color: #333; */
 	/* overflow: hidden; */
-	position: absolute;
-	bottom: -450;
+	/* position: absolute; */
+	position: fixed;
+	bottom: -65%;
 	width: 100%;
   }
   
