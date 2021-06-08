@@ -1,3 +1,4 @@
+const C_A_K='Bearer pt7oRhb0oW4CSc7IHKIDg';
 
 // GLOBAL VARIABLES:
 const baseURL = "https://www.carboninterface.com/api/v1"
@@ -119,11 +120,13 @@ selectType.addEventListener('change', (event) => {
 			"country": "us",
 			"state": state
 			}
+
 		fetch(`https://www.carboninterface.com/api/v1/estimates`,
 		{
 			method: 'POST',
 			headers: {
-				'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+				// 'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+				'Authorization':`${C_A_K}`,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(electricity_data)
@@ -190,7 +193,7 @@ selectType.addEventListener('change', (event) => {
 		fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 			method: 'POST',
 			headers: {
-				'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+				'Authorization':`${C_A_K}`,
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(flight_data)
@@ -241,7 +244,7 @@ selectType.addEventListener('change', (event) => {
 				fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 					method: 'POST',
 					headers: {
-						'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+						'Authorization':`${C_A_K}`,
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify(shipping_data)
@@ -280,7 +283,7 @@ selectType.addEventListener('change', (event) => {
 				fetch(`https://www.carboninterface.com/api/v1/vehicle_makes`,{
 					method: 'GET',
 					headers: {
-						'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+						'Authorization':`${C_A_K}`,
 						'Content-Type': 'application/json'
 					}
 
@@ -302,7 +305,7 @@ selectType.addEventListener('change', (event) => {
 				fetch(`https://www.carboninterface.com/api/v1/vehicle_makes/${MAKE_ID}/vehicle_models`,{
 					method: 'GET',
 						headers: {
-							'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+							'Authorization':`${C_A_K}`,
 							'Content-Type': 'application/json'
 						}
 				})
@@ -324,7 +327,7 @@ selectType.addEventListener('change', (event) => {
 					fetch(`https://www.carboninterface.com/api/v1/estimates`,{
 						method: 'POST',
 						headers: {
-							'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
+							'Authorization':`${C_A_K}`,
 							'Content-Type': 'application/json'
 						},
 						body: JSON.stringify(vehicle_data)

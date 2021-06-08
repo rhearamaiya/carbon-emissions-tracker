@@ -33,6 +33,19 @@ body{
 	font-family: 'Roboto', sans-serif;
 }
 
+.info-bullets
+{
+	color: white;   
+	background-color: #1c4404;
+	font-size: 25px; 
+	font-family: 'Roboto', sans-serif;
+	opacity: 0.8;
+
+}
+
+a:link, a:visited, a:hover, a:active { color: white }
+
+
 #all_results {
 	color:white;
 	font-size: 25px;
@@ -82,7 +95,7 @@ body{
 	/* background-color: #333; */
 	/* overflow: hidden; */
 	position: absolute;
-	bottom: -450px;
+	bottom: -450;
 	width: 100%;
   }
   
