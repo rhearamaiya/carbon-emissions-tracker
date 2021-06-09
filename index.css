@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 /* https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap */
-/* body
-{
-	background:lightgreen;
-	background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/154d98d5-957e-4d10-9173-7341c19ada6f/d8wecxf-cf0a3351-1c69-49eb-99d2-4a8425809e37.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE1NGQ5OGQ1LTk1N2UtNGQxMC05MTczLTczNDFjMTlhZGE2ZlwvZDh3ZWN4Zi1jZjBhMzM1MS0xYzY5LTQ5ZWItOTlkMi00YTg0MjU4MDllMzcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.-hNDXKlK4tg50n9dNpmyTYcguEb9xn8HsDQewnNEByw");
-	background-blend-mode: overlay;
-
-} */
 
 body{
 	background:
@@ -51,17 +44,7 @@ a:link, a:visited, a:hover, a:active { color: white }
 	font-size: 25px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: bold;
-
-	/* background: black; */
 }
-/* 
-#form {
-	margin: auto;
-	width: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-} */
 
 #choose-type {
 	display: block;
@@ -75,12 +58,6 @@ a:link, a:visited, a:hover, a:active { color: white }
 	margin-right: auto;
 }
 
-/* .valss{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-} */
-
 #btn{
 	display: block;
 	margin-left: auto;
@@ -92,9 +69,6 @@ a:link, a:visited, a:hover, a:active { color: white }
 }
 
 .navbar {
-	/* background-color: #333; */
-	/* overflow: hidden; */
-	/* position: absolute; */
 	position: fixed;
 	bottom: -65%;
 	width: 100%;

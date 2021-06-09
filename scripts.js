@@ -33,18 +33,10 @@ const clear = `
 </section>
 `
 
-// FOR ELECTRICITY //
-// document.querySelector("#btn").onclick = value => {
-// 	console.log('why not here')
-// 	console.log(document.querySelector('#choose-type').value)
-// 	console.log(document.getElementById("value").value)
-// }
-
 const selectType = document.getElementById('choose-type');
 
 selectType.addEventListener('change', (event) => {
 	var emissionType = event.target.value
-	// console.log(emissionType)
 
 	if(emissionType==='electricity'){
 
@@ -125,7 +117,6 @@ selectType.addEventListener('change', (event) => {
 		{
 			method: 'POST',
 			headers: {
-				// 'Authorization':'Bearer pt7oRhb0oW4CSc7IHKIDg',
 				'Authorization':`${C_A_K}`,
 				'Content-Type': 'application/json'
 			},
@@ -168,17 +159,11 @@ selectType.addEventListener('change', (event) => {
 			.then(result => {
 				var list_departure = result.data
 				var list_destination = result.data
-				// console.log('list_departure:', list_departure, 'list_destination', list_destination)
 				var obj_departure = list_departure.find(res => res.airport_name === departure_airport)
 				var obj_destination = list_destination.find(res => res.airport_name === destination_airport)
 
 				var iata_departure = obj_departure.iata_code
 				var iata_destination = obj_destination.iata_code
-
-			// .then(result => {
-			// 	obj = result.find(res => res.data.attributes.name === vehicle_model)
-
-			// 	MODEL_ID = obj.data.id
 
 
 		var passenger_no=document.getElementById("passenger_no").value
@@ -203,9 +188,7 @@ selectType.addEventListener('change', (event) => {
 				document.querySelector('#all_results').innerHTML=clear
 				document.querySelector('#flight_estimate').innerHTML = `Carbon released from round-trip, ${passenger_no}-passenger flight from ${departure_airport}
 				to ${destination_airport}: ${result.data.attributes.carbon_g} grams`
-				document.querySelector("#flight_estimate").style.textAlign = "center";
-				// document.querySelector('#all_results').innerHTML
-			
+				document.querySelector("#flight_estimate").style.textAlign = "center";			
 			});
 
 		})
@@ -251,7 +234,6 @@ selectType.addEventListener('change', (event) => {
 				})
 					.then(response => response.json())
 					.then(result => {
-						// console.log(result)
 						document.querySelector('#all_results').innerHTML=clear
 						document.querySelector('#shipping_estimate').innerHTML = `Carbon released from ${weight_value}g shipment for ${distance_value}km by truck: ${result.data.attributes.carbon_g} grams`
 						document.querySelector("#shipping_estimate").style.textAlign = "center";
@@ -291,15 +273,11 @@ selectType.addEventListener('change', (event) => {
 					.then(response => response.json())
 					.then(result => {
 						obj = result.find(res => res.data.attributes.name === vehicle_make)
-						// console.log(obj.data.id)
-						// return MAKE_ID = obj.data.id
 						return obj.data.id
 						// console.log(MAKE_ID)
 					})
 					.then(result => {
-						// console.log('MAKE ID:', MAKE_ID)
 						MAKE_ID = result
-						// console.log('MAKE_ID:', MAKE_ID)
 					
 
 				fetch(`https://www.carboninterface.com/api/v1/vehicle_makes/${MAKE_ID}/vehicle_models`,{
@@ -313,10 +291,7 @@ selectType.addEventListener('change', (event) => {
 					.then(result => {
 						obj = result.find(res => res.data.attributes.name === vehicle_model)
 
-						MODEL_ID = obj.data.id
-						
-						// console.log('MODEL ID: ', MODEL_ID)
-					
+						MODEL_ID = obj.data.id					
 
 				const vehicle_data = {
 					"type": "vehicle",
@@ -334,8 +309,6 @@ selectType.addEventListener('change', (event) => {
 					})
 						.then(response => response.json())
 						.then(result => {
-							//console.log('data:', result.data.attributes.carbon_g);
-							//type of car is in response too
 							document.querySelector('#all_results').innerHTML=clear
 							document.querySelector('#vehicle_estimate').innerHTML = `Carbon released from ${distance_value} miles by ${vehicle_make} ${vehicle_model}: ${result.data.attributes.carbon_g} grams`
 							document.querySelector("#vehicle_estimate").style.textAlign = "center";
@@ -343,6 +316,6 @@ selectType.addEventListener('change', (event) => {
 							});
 						})
 					})
-					}
-					}
+				}
+			}
 	});
